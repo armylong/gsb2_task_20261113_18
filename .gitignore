@@ -42,3 +42,6 @@ coverage/
 .idea/
 .vscode/
 *.swp
+
+# 冒烟测试下载产物
+scripts/downloads/

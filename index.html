@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三维模型检查器</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header id="toolbar">
+      <span class="brand">模型检查器</span>
+      <button id="btn-open">打开 GLB</button>
+      <button id="btn-demo">演示模型</button>
+      <span class="sep"></span>
+      <span class="group-label">视角</span>
+      <button data-view="front">正视</button>
+      <button data-view="side">侧视</button>
+      <button data-view="top">俯视</button>
+      <button data-view="persp">透视</button>
+      <button id="btn-fit">适配</button>
+      <span class="sep"></span>
+      <span class="group-label">工具</span>
+      <button id="tool-select" class="active">选择</button>
+      <button id="tool-measure">测量</button>
+      <button id="btn-commit-measure" class="hidden">完成当前测量</button>
+      <span class="sep"></span>
+      <span class="group-label">单位</span>
+      <button id="unit-mm" class="active">mm</button>
+      <button id="unit-cm">cm</button>
+      <span class="sep"></span>
+      <button id="btn-save-project">保存工程</button>
+      <button id="btn-open-project">打开工程</button>
+      <span class="sep"></span>
+      <button id="btn-export-png">导出 PNG</button>
+      <button id="btn-export-report">导出报告</button>
+    </header>
+
+    <main id="main">
+      <aside id="left">
+        <h2>模型层级</h2>
+        <div id="tree"></div>
+      </aside>
+
+      <div id="viewport-wrap">
+        <div id="viewport"></div>
+        <div id="labels"></div>
+        <div id="status-bar">
+          <span id="status">就绪</span>
+          <span id="status-info"></span>
+        </div>
+        <div id="busy" class="hidden"><div class="spinner"></div><span id="busy-text">处理中…</span></div>
+      </div>
+
+      <aside id="right">
+        <section>
+          <h2>剖切</h2>
+          <div id="clip-panel"></div>
+        </section>
+        <section>
+          <h2>测量 <button id="btn-clear-measure" class="mini">清空</button></h2>
+          <div id="measure-list"></div>
+        </section>
+        <section>
+          <h2>当前状态</h2>
+          <div id="info-panel"></div>
+        </section>
+      </aside>
+    </main>
+
+    <input type="file" id="file-glb" accept=".glb" class="hidden" />
+    <input type="file" id="file-project" accept=".json,.miproj" class="hidden" />
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
